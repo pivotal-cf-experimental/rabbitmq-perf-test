@@ -61,7 +61,7 @@ public class MulticastSet {
 
     public void run(boolean announceStartup) throws IOException, InterruptedException, TimeoutException {
         Thread[] consumerThreads = new Thread[params.getConsumerThreadCount()];
-        Connection[] consumerConnections = new Connection[consumerThreads.length];
+        Connection[] consumerConnections = new Connection[params.getConsumerCount()];
         for (int i = 0; i < consumerConnections.length; i++) {
             if (announceStartup) {
                 System.out.println("id: " + testID + ", starting consumer #" + i);
@@ -84,8 +84,8 @@ public class MulticastSet {
         }
 
         Thread[] producerThreads = new Thread[params.getProducerThreadCount()];
-        Connection[] producerConnections = new Connection[producerThreads.length];
-        for (int i = 0; i < params.getProducerCount(); i++) {
+        Connection[] producerConnections = new Connection[params.getProducerCount()];
+        for (int i = 0; i < producerConnections.length; i++) {
             if (announceStartup) {
                 System.out.println("id: " + testID + ", starting producer #" + i);
             }
