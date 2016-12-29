@@ -73,7 +73,7 @@ public class MulticastSet {
                     System.out.println("id: " + testID + ", starting consumer #" + i + ", channel #" + j);
                 }
                 Thread t = new Thread(params.createConsumer(conn, stats, id));
-                consumerThreads[i] = t;
+                consumerThreads[(i * params.getConsumerChannels()) + j] = t;
             }
         }
 
@@ -96,7 +96,7 @@ public class MulticastSet {
                     System.out.println("id: " + testID + ", starting producer #" + i + ", channel #" + j);
                 }
                 Thread t = new Thread(params.createProducer(conn, stats, id));
-                producerThreads[i] = t;
+                producerThreads[(i * params.getProducerChannels()) + j] = t;
             }
         }
 
