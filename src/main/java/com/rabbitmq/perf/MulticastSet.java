@@ -60,7 +60,7 @@ public class MulticastSet {
     }
 
     public void run(boolean announceStartup) throws IOException, InterruptedException, TimeoutException {
-        Thread[] consumerThreads = new Thread[params.getConsumerCount()];
+        Thread[] consumerThreads = new Thread[params.getConsumerThreadCount()];
         Connection[] consumerConnections = new Connection[consumerThreads.length];
         for (int i = 0; i < consumerConnections.length; i++) {
             if (announceStartup) {
